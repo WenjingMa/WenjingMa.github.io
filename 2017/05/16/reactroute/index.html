@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="React, React-Router, browserHistory," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="在React项目中我们经常需要采用React-Router来配置我们的页面路由，React-Router 是建立在 history 之上的，常见的history路由方案有三种形式，分别是：  hashHistory browserHistory createMemoryHistory  hashHistory 使用 URL 中的 hash（#）部分去创建形如 example.com/#/some/">
+<meta name="keywords" content="React, React-Router, browserHistory">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React-Router browserHistory浏览器刷新出现页面404解决方案">
+<meta property="og:url" content="http://yoursite.com/2017/05/16/reactroute/index.html">
+<meta property="og:site_name" content="Sunny&#39;s Notes">
+<meta property="og:description" content="在React项目中我们经常需要采用React-Router来配置我们的页面路由，React-Router 是建立在 history 之上的，常见的history路由方案有三种形式，分别是：  hashHistory browserHistory createMemoryHistory  hashHistory 使用 URL 中的 hash（#）部分去创建形如 example.com/#/some/">
+<meta property="og:updated_time" content="2017-05-16T07:11:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React-Router browserHistory浏览器刷新出现页面404解决方案">
+<meta name="twitter:description" content="在React项目中我们经常需要采用React-Router来配置我们的页面路由，React-Router 是建立在 history 之上的，常见的history路由方案有三种形式，分别是：  hashHistory browserHistory createMemoryHistory  hashHistory 使用 URL 中的 hash（#）部分去创建形如 example.com/#/some/">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/16/reactroute/"/>
+
+
+
+
+
+  <title>React-Router browserHistory浏览器刷新出现页面404解决方案 | Sunny's Notes</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Sunny's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/reactroute/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mawenjing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sunny's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">React-Router browserHistory浏览器刷新出现页面404解决方案</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-16T14:37:13+08:00">
+                2017-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在React项目中我们经常需要采用React-Router来配置我们的页面路由，React-Router 是建立在 history 之上的，常见的history路由方案有三种形式，分别是：</p>
+<ul>
+<li>hashHistory</li>
+<li>browserHistory</li>
+<li>createMemoryHistory</li>
+</ul>
+<p><code>hashHistory</code> 使用 <code>URL</code> 中的 <code>hash</code>（#）部分去创建形如 <code>example.com/#/some/path</code> 的路由。<br><code>browserHistory</code> 是使用 <code>React-Router</code> 的应用推荐的 <code>history</code> 方案。它使用浏览器中的 <strong>History</strong> API 用于处理 <code>URL</code>，创建一个像<code>example.com/list/123</code>这样真实的 <code>URL</code> 。</p>
+<p>一个采用 <code>browserHistory</code> 的 <code>React-router</code> 配置可能如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">"react-dom"</span>;</div><div class="line"><span class="keyword">import</span> &#123; Router, Route, IndexRoute, Link, IndexLink, browserHistory&#125; <span class="keyword">from</span> <span class="string">'react-router'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> Index <span class="keyword">from</span> <span class="string">"../routes/HelloWorld"</span>;</div><div class="line"><span class="keyword">import</span> List <span class="keyword">from</span> <span class="string">"../routes/BlogList"</span>;</div><div class="line"><span class="keyword">import</span> About <span class="keyword">from</span> <span class="string">"../routes/About"</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;ul&gt;</div><div class="line">                  &lt;li&gt;&lt;IndexLink to="/"&gt;首页&lt;/IndexLink&gt;&lt;/li&gt;</div><div class="line">                  &lt;li&gt;&lt;Link to="/list"&gt;List&lt;/Link&gt;&lt;/li&gt;</div><div class="line">                  &lt;li&gt;&lt;Link to="/about"&gt;About&lt;/Link&gt;&lt;/li&gt;</div><div class="line">                &lt;/ul&gt;</div><div class="line">                &#123;this.props.children&#125;</div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">    &lt;Router history = &#123;browserHistory&#125;&gt;</div><div class="line">        &lt;Route path="/" component=&#123;App&#125;&gt;</div><div class="line">          &lt;IndexRoute component=&#123;Index&#125;/&gt;</div><div class="line">          &lt;Route path="list" component=&#123;List&#125;/&gt;</div><div class="line">          &lt;Route path="about" component=&#123;About&#125;/&gt;</div><div class="line">        &lt;/Route&gt;</div><div class="line">    &lt;/Router&gt;,</div><div class="line">    document.getElementById("APP")</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>但是我们当我们采用 <code>browserHistory</code> 方案时，通常会遇到浏览器刷新404 的问题。</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在 <code>React + React-router</code> 实现的SPA(单页面应用)项目中，当我们路由模式采用 <code>browserHistory</code> 时，点击每个导航都可以显示正确的页面，一旦浏览器刷新，页面就显示 Cannot GET（404）。<br>如当我们点击 <code>List</code> 链接，进入 <code>List</code> 页面之后，正常显示 <code>List</code> 页面内容，这时如果我们刷新页面，页面将会出错，返回 Cannot GET /list。</p>
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>当刷新页面时，浏览器会向服务器请求 <code>example.com/list</code>，服务器实际会去找根目录下list.html这个文件，发现找不到，因为实际上我们的服务器并没有这样的 物理路径/文件 或没有配置处理这个路由，所有内容都是通过React-Router去渲染React组件，自然会报404错误。这种情况我们可以通过配置Nginx或通过自建Node服务器来解决。</p>
+<h2 id="Nginx方式"><a href="#Nginx方式" class="headerlink" title="Nginx方式"></a>Nginx方式</h2><p>采用Nginx方案需要先将所有资源打包生成到对应的目录，比如<code>dist</code>，然后做如下配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">	server_name react.thinktxt.com;</div><div class="line">	listen <span class="number">80</span>;</div><div class="line"></div><div class="line">	root /Users/txBoy/WEB-Project/React-Demo/dist;</div><div class="line">	index index.html;</div><div class="line">	location / &#123;</div><div class="line">    	try_files $uri /index.html;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过配置Nginx，访问任何URI都指向index.html，浏览器上的path，会自动被React-router处理，进行无刷新跳转。</p>
+<h2 id="通过修改webpack-dev-server运行方式"><a href="#通过修改webpack-dev-server运行方式" class="headerlink" title="通过修改webpack-dev-server运行方式"></a>通过修改webpack-dev-server运行方式</h2><p>这个解决方法很简单，直接在运行时加入参数“–history-api-fallback”就可以了。我们修改package.json相关的代码:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"build"</span>: <span class="string">"webpack"</span>,</div><div class="line">    <span class="string">"dev"</span>: <span class="string">"webpack-dev-server  --inline --devtool eval --progress --colors --hot --content-base ./build --history-api-fallback"</span></div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<h2 id="Node服务端配置"><a href="#Node服务端配置" class="headerlink" title="Node服务端配置"></a>Node服务端配置</h2><p>一个express应用的配置示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="keyword">const</span> port = process.env.PORT || <span class="number">8080</span>;</div><div class="line"><span class="keyword">const</span> app = express();</div><div class="line"></div><div class="line"><span class="comment">//加载指定目录静态资源</span></div><div class="line">app.use(express.static(__dirname + <span class="string">'/dist'</span>))</div><div class="line"></div><div class="line"><span class="comment">//配置任何请求都转到index.html，而index.html会根据React-Router规则去匹配任何一个route</span></div><div class="line">app.get(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">request, response</span>)</span>&#123;</div><div class="line">  response.sendFile(path.resolve(__dirname, <span class="string">'dist'</span>, <span class="string">'index.html'</span>))</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.listen(port, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"server started on port "</span> + port)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>一个Koa应用的配置示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Koa <span class="keyword">from</span> <span class="string">'koa'</span>;</div><div class="line"><span class="keyword">import</span> xtpl <span class="keyword">from</span> <span class="string">'koa-xtpl'</span>;</div><div class="line"><span class="keyword">import</span> path <span class="keyword">from</span> <span class="string">'path'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</div><div class="line"><span class="keyword">const</span> port = process.env.PORT || <span class="number">8081</span>;</div><div class="line"></div><div class="line">app.use(xtpl(&#123;</div><div class="line">	<span class="attr">root</span>: path.resolve(__dirname, <span class="string">'../dist'</span>),</div><div class="line">	<span class="attr">extname</span>: <span class="string">'html'</span>,</div><div class="line">	<span class="attr">commands</span>: &#123;&#125;</div><div class="line">&#125;));</div><div class="line"></div><div class="line">app.use(<span class="keyword">async</span>(ctx, next) =&gt; &#123;</div><div class="line">	<span class="keyword">await</span> ctx.render(<span class="string">'index'</span>, &#123;&#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.listen(port, () =&gt; &#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'Server started on port'</span> + port);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>注意: 由于koa的这种方式端口与webpack-dev-server（8080）必须不同，所以还需要配合Nginx代理。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">	server_name react.thinktxt.com;</div><div class="line">	listen <span class="number">80</span>;</div><div class="line"></div><div class="line">	location / &#123;</div><div class="line">		proxy_pass http:<span class="comment">//localhost:8081;</span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">server &#123;</div><div class="line">	server_name <span class="keyword">static</span>.react.thinktxt.com;</div><div class="line">	listen <span class="number">80</span>;</div><div class="line"></div><div class="line">	location / &#123;</div><div class="line">		proxy_pass http:<span class="comment">//localhost:8080;</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>既然我们的Nginx代理用了真实域名，自然别忘了修改一下host，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> react.thinktxt.com</div><div class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> <span class="keyword">static</span>.react.thinktxt.com</div></pre></td></tr></table></figure>
+<p>这样我们就大功告成了，可以happy的在地址栏直接访问任何采用browserHistory方式配置的路由页面了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>面对这种场景其实还有很多种方案，任何服务端的处理方式都可以，例如还有PHP、Apache等等。</p>
+<blockquote>
+<p>其本质的原理就是利用服务端将任何请求都指向index.html，而在React应用中index.html又刚好通过React-Router配置了相应的路由，我们让服务器返回index.html，后面就交给前端路由来实现无刷新加载对应页面。</p>
+</blockquote>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li>React Router 中文文档-Histories</li>
+<li>react-router 浏览器刷新，页面404，依靠nginx配置解决</li>
+<li><a href="http://techgogogo.com/2016/09/react_router/" target="_blank" rel="external">小白学react之React Router实战</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+          
+            
+
+          
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/React-React-Router-browserHistory/" rel="tag"># React, React-Router, browserHistory</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/05/keyevent/" rel="next" title="keyevent">
+                <i class="fa fa-chevron-left"></i> keyevent
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/30/tcp-ip/" rel="prev" title="tcp/ip">
+                tcp/ip <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.jpg"
+              alt="mawenjing" />
+          
+            <p class="site-author-name" itemprop="name">mawenjing</p>
+            <p class="site-description motion-element" itemprop="description">what do you want？</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题分析"><span class="nav-number">2.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx方式"><span class="nav-number">3.</span> <span class="nav-text">Nginx方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过修改webpack-dev-server运行方式"><span class="nav-number">4.</span> <span class="nav-text">通过修改webpack-dev-server运行方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node服务端配置"><span class="nav-number">5.</span> <span class="nav-text">Node服务端配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">7.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mawenjing</span>
+
+  
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/love.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/particle.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

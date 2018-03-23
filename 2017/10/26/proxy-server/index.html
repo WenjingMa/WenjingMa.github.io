@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="http-proxy," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="透明代理-解除远程接口对本地的跨域限制，从而在本地网页上可使用有跨域限制的ajax####首先需要搞清楚正向代理、反向代理和透明代理的概念及其它们之间的区别？  正向代理  简述： 正向代理是位于客户端和目标服务器之间的一个代理服务器。遇到客服端无法访问目标服务器的情况，为了正常从目标服务器获取资源，客服端会向代理服务器发送请求，并指定目标服务器，代理服务器接收请求并将请求转交给目标服务器，之后将">
+<meta name="keywords" content="http-proxy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="proxy-server">
+<meta property="og:url" content="http://yoursite.com/2017/10/26/proxy-server/index.html">
+<meta property="og:site_name" content="Sunny&#39;s Notes">
+<meta property="og:description" content="透明代理-解除远程接口对本地的跨域限制，从而在本地网页上可使用有跨域限制的ajax####首先需要搞清楚正向代理、反向代理和透明代理的概念及其它们之间的区别？  正向代理  简述： 正向代理是位于客户端和目标服务器之间的一个代理服务器。遇到客服端无法访问目标服务器的情况，为了正常从目标服务器获取资源，客服端会向代理服务器发送请求，并指定目标服务器，代理服务器接收请求并将请求转交给目标服务器，之后将">
+<meta property="og:updated_time" content="2017-10-27T08:02:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="proxy-server">
+<meta name="twitter:description" content="透明代理-解除远程接口对本地的跨域限制，从而在本地网页上可使用有跨域限制的ajax####首先需要搞清楚正向代理、反向代理和透明代理的概念及其它们之间的区别？  正向代理  简述： 正向代理是位于客户端和目标服务器之间的一个代理服务器。遇到客服端无法访问目标服务器的情况，为了正常从目标服务器获取资源，客服端会向代理服务器发送请求，并指定目标服务器，代理服务器接收请求并将请求转交给目标服务器，之后将">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/26/proxy-server/"/>
+
+
+
+
+
+  <title>proxy-server | Sunny's Notes</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Sunny's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/26/proxy-server/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mawenjing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sunny's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">proxy-server</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-26T19:54:57+08:00">
+                2017-10-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="透明代理-解除远程接口对本地的跨域限制，从而在本地网页上可使用有跨域限制的ajax"><a href="#透明代理-解除远程接口对本地的跨域限制，从而在本地网页上可使用有跨域限制的ajax" class="headerlink" title="透明代理-解除远程接口对本地的跨域限制，从而在本地网页上可使用有跨域限制的ajax"></a>透明代理-解除远程接口对本地的跨域限制，从而在本地网页上可使用有跨域限制的ajax</h2><p>####首先需要搞清楚正向代理、反向代理和透明代理的概念及其它们之间的区别？</p>
+<ol>
+<li>正向代理</li>
+</ol>
+<p>简述：</p>
+<p>正向代理是位于客户端和目标服务器之间的一个代理服务器。遇到客服端无法访问目标服务器的情况，为了正常从目标服务器获取资源，客服端会向代理服务器发送请求，并指定目标服务器，代理服务器接收请求并将请求转交给目标服务器，之后将获取的资源内容返回给客户端。这里需要注意，客户端请求时必须指定目标服务器才能完成请求。</p>
+<p>使用场景：</p>
+<p>正向代理经常被用于翻墙，比如用户A无法访问facebook，但可以访问服务器B，而服务器B可以访问facebook。于是用户A访问服务器B，通过B去访问facebook，B接收到请求之后，去访问facebook，facebook将相应信息返回给B，B再将响应返回给A。这样通过服务器B，就可以实现翻墙。</p>
+<ol>
+<li>反向代理</li>
+</ol>
+<p>简述：</p>
+<p>与正向代理相反，对于客户端而言，代理服务器就像是目标服务器。客户端不需要设置任何信息，直接将请求发送给代理服务器，代理服务器根据条件判断请求哪个目标服务器，而客户端并不需要关心代理服务器的处理过程。</p>
+<p>使用场景：</p>
+<p>假设用户A访问 <a href="http://www.somesite.com/something.html，但http://www.somesite.com上并不存在something.html页面，于是接收用户请求的该服务器就偷偷从另外一台服务器上取回来，然后返回给用户，而用户并不知道something.html页面究竟位于哪台机器上。" target="_blank" rel="external">http://www.somesite.com/something.html，但http://www.somesite.com上并不存在something.html页面，于是接收用户请求的该服务器就偷偷从另外一台服务器上取回来，然后返回给用户，而用户并不知道something.html页面究竟位于哪台机器上。</a></p>
+<ol>
+<li>透明代理</li>
+</ol>
+<p>概念：</p>
+<p>透明代理比较类似正向代理的功能，差别在于客户端根本不知道代理的存在，它改编你的request，并会传送真实IP（使用场景就是公司限制网络的访问）</p>
+<p>使用场景：</p>
+<p>比如为了工作效率或者安全，A公司屏蔽了QQ软件的使用。A公司的员工接上了网络，但发现无法使用qq。这就是透明代理捣的鬼。公司在内网和外网的中间插入一个透明代理，这个代理会根据规则抓取请求内容，遇到qq的请求我就把这个请求给屏蔽掉，这样就完成了透明屏蔽。当然了，如果你明白原理，就可以自己搞个正向代理来绕过公司的屏蔽。</p>
+<ol>
+<li>区别</li>
+</ol>
+<p>正向代理是代理客户端，为客户端收发请求，使真实客户端对服务器不可见；而反向代理是代理服务器端，为服务器收发请求，使真实服务器对客户端不可见；透明代理和正向代理类似，但是客户端并不知道代理的存在。</p>
+<p>####解决方案</p>
+<ol>
+<li>增加或修改response的header中的Access-Control-Allow-Origin项，设定其值为本地调试的域名，如：<a href="http://localhost:8080，注意结尾无/。" target="_blank" rel="external">http://localhost:8080，注意结尾无/。</a></li>
+<li>增加response的header中Access-Control-Allow-Credentials，设定其值为true，即允许跨域传递cookie。<br>Note: Access-Control-Allow-Credentials为true时，chrome限制Access-Control-Allow-Origin不能为*<br>MacOS下可使用Charles实现，windows下可使用fiddler实现。跨平台则使用基于node-proxy实现的自制代理</li>
+</ol>
+<p><strong>方法一： 使用node-proxy</strong><br>方式一： 命令行工具</p>
+<ol>
+<li>执行npm install simple-xdomain-proxy -g</li>
+<li>xdomain-proxy , 按照引导进行配置</li>
+<li>打开chrome，通过SwitchyOmega或其它工具，设置http代理127.0.0.1:port, 代理网页到本地代理服务。<br>参照： <a href="https://github.com/goumang2010/simple-xdomain-proxy" target="_blank" rel="external">https://github.com/goumang2010/simple-xdomain-proxy</a><br>方式二：REPL环境</li>
+<li>安装node环境，通过npm安装http-proxy： npm i http-proxy -g</li>
+<li>进入node的REPL环境： node</li>
+<li>粘贴以下js并回车，即立即执行这段代码，会设置代理端口号为8038，跨域origin为<a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a></li>
+<li>打开chrome，通过SwitchyOmega或其它工具，设置http代理127.0.0.1:8038, 代理网页到本地代理服务。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> httpProxy = <span class="built_in">require</span>(<span class="string">'http-proxy'</span>);</div><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">"url"</span>);</div><div class="line"><span class="keyword">var</span> proxy = httpProxy.createProxyServer(&#123;&#125;);</div><div class="line">proxy.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, req, res</span>) </span>&#123;</div><div class="line">	res.writeHead(<span class="number">500</span>, &#123;</div><div class="line">		<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span></div><div class="line">	&#125;);</div><div class="line">	res.end(<span class="string">'Something went wrong.'</span>);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">createProxy</span>(<span class="params">&#123; port, origin &#125;</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">		<span class="keyword">var</span> urlObj = url.parse(req.url);</div><div class="line">		res.oldWriteHead = res.writeHead;</div><div class="line">		res.writeHead = <span class="function"><span class="keyword">function</span>(<span class="params">statusCode, headers</span>) </span>&#123;</div><div class="line">			<span class="comment">// 设置跨域头</span></div><div class="line">			res.setHeader(<span class="string">'Access-Control-Allow-Credentials'</span>, <span class="literal">true</span>);</div><div class="line">			res.setHeader(<span class="string">'Access-Control-Allow-Origin'</span>, origin || <span class="string">'*'</span>);</div><div class="line">			res.setHeader(<span class="string">'Access-Control-Allow-Methods'</span>, <span class="string">'GET,PUT,POST,DELETE'</span>);</div><div class="line">			res.setHeader(<span class="string">'Access-Co ntrol-Allow-Headers'</span>, <span class="string">'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept'</span>);</div><div class="line">			res.oldWriteHead(statusCode, headers);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">let</span> target = urlObj.protocol + <span class="string">"//"</span> + urlObj.host;</div><div class="line"></div><div class="line">		proxy.web(req, res, &#123;</div><div class="line">			<span class="attr">target</span>: target</div><div class="line">		&#125;);</div><div class="line">	&#125;).listen(port);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>方法二：使用Charles</strong></p>
+<ol>
+<li>打开rewrite工具。<br>￼<br>open rewrite tool</li>
+<li>上方配置筛选域名，下方配置重写选项<br>￼</li>
+<li>首先选择类型，然后填写匹配及替换的字段，留空表示匹配全部。<br>￼</li>
+<li>完成设置后，浏览器使用系统代理即可。</li>
+</ol>
+<p>参考：<br><a href="https://zhuanlan.zhihu.com/p/25423394" target="_blank" rel="external">正向代理和反向代理的区别</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+          
+            
+
+          
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/http-proxy/" rel="tag"># http-proxy</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/30/tcp-ip/" rel="next" title="tcp/ip">
+                <i class="fa fa-chevron-left"></i> tcp/ip
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/05/IELTS/" rel="prev" title="IELTS">
+                IELTS <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.jpg"
+              alt="mawenjing" />
+          
+            <p class="site-author-name" itemprop="name">mawenjing</p>
+            <p class="site-description motion-element" itemprop="description">what do you want？</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#透明代理-解除远程接口对本地的跨域限制，从而在本地网页上可使用有跨域限制的ajax"><span class="nav-number">1.</span> <span class="nav-text">透明代理-解除远程接口对本地的跨域限制，从而在本地网页上可使用有跨域限制的ajax</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mawenjing</span>
+
+  
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/love.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/particle.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

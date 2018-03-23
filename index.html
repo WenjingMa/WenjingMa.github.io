@@ -1,0 +1,1811 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="what do you want？">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sunny&#39;s Notes">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Sunny&#39;s Notes">
+<meta property="og:description" content="what do you want？">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sunny&#39;s Notes">
+<meta name="twitter:description" content="what do you want？">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/"/>
+
+
+
+
+
+  <title>Sunny's Notes</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Sunny's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/23/reactnative/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mawenjing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sunny's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/23/reactnative/" itemprop="url">reactnative</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-23T15:52:05+08:00">
+                2018-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近在学习ReactNative，发现官方文档对原生模块开发介绍的不够详细，对于我这个初学者来说根本跑不通实例，经过各种搜集资料并实践之后，整理了一下整个实践流程。</p>
+<p>下面主要介绍ios原生模块的开发，实践代码：<a href="https://github.com/cbsunny/MyApp" target="_blank" rel="external">https://github.com/cbsunny/MyApp</a></p>
+<h2 id="准备工作："><a href="#准备工作：" class="headerlink" title="准备工作："></a>准备工作：</h2><p>前提：基本环境已经搭建完成。</p>
+<h3 id="创建ReactNative项目"><a href="#创建ReactNative项目" class="headerlink" title="创建ReactNative项目"></a>创建ReactNative项目</h3><p>首先创建一个ReactNative项目，使用以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-native init MyApp</div></pre></td></tr></table></figure>
+<p>创建好之后，我们使用xcode打开MyApp下的ios项目（双击MyApp.xcodeproj）。</p>
+<h3 id="创建静态库，将静态库手动链接到项目中"><a href="#创建静态库，将静态库手动链接到项目中" class="headerlink" title="创建静态库，将静态库手动链接到项目中"></a>创建静态库，将静态库手动链接到项目中</h3><ol>
+<li>在当前创建的项目的node_modules下创建一个文件夹react-native-BGNativeModuleExample，然后在该文件夹下创建ios文件夹。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cd TestProject/node_modules</div><div class="line">$ mkdir react-native-BGNativeModuleExample</div><div class="line">$ cd react-native-BGNativeModuleExample</div><div class="line">$ mkdir ios</div></pre></td></tr></table></figure>
+<ol>
+<li>创建静态库。由于ReactNative的组件都是一个个的静态库，我们发布到npm也需要创建静态库。使用xcodej建立静态库，名字为BGNativeModuleExample。</li>
+</ol>
+<p>创建步骤:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">File =&gt; New =&gt; Project =&gt; ios =&gt; Cocoa Touch Static Library</div></pre></td></tr></table></figure>
+<p><img src="../1.png" alt="创建静态库"></p>
+<ol>
+<li>将创建后的静态库的文件全部copy到MyApp下的node_modules/react-native-BGNativeModuleExample/ios目录下。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">|____BGNativeModuleExample</div><div class="line">| |____BGNativeModuleExample.h</div><div class="line">| |____BGNativeModuleExample.m</div><div class="line">|____BGNativeModuleExample.xcodeproj</div></pre></td></tr></table></figure>
+<ol>
+<li>最后手动将静态库链接到工程中。</li>
+</ol>
+<p>使用xcode打开ios目录下刚copy的静态库，添加Header Search Paths，值为$(SRCROOT)/../../react-native/React，并设置为recursive。</p>
+<p><img src="../2.png" alt="建立链接"></p>
+<p>将BGNativeModuleExample静态库工程拖动到工程中的Library中。</p>
+<p><img src="../3.png" alt="移动"></p>
+<p>最后选中MyApp =&gt; TARGETS =&gt; TestProject =&gt; Build Settings =&gt; Link Binary With Libraries，添加libBGNativeModuleExample.a这个静态库。</p>
+<p><img src="../4.png" alt="添加静态库"></p>
+<p>目前配置工作已经完成，这里做关联是为了避免发布到npm后别人找不到静态库。</p>
+<h2 id="编写原生代码"><a href="#编写原生代码" class="headerlink" title="编写原生代码"></a>编写原生代码</h2><ol>
+<li>选中创建的静态库react-native-BGNativeModuleExample，在BGNativeModuleExample.h文件中导入RCTBridgeModule.h，让BGNativeModuleExample类遵循RCTBridgeModule协议。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">#import &lt;React/RCTBridgeModule.h&gt;</div><div class="line">@interface BGNativeModuleExample : NSObject &lt;RCTBridgeModule&gt;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<ol>
+<li>在BGNativeModuleExample.m文件中，我们需要实现RCTBridgeModule协议。为了实现RCTBridgeModule协议，我们的类需要包含RCT_EXPORT_MODULE()宏。这个宏也可以添加一个参数用来指定在Javascript中访问这个模块的名字。如果不指定，默认会使用这个类的名字。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">RCT_EXPORT_MODULE(BGNativeModuleExample);</div></pre></td></tr></table></figure>
+<p>实现了RCTBridgeModule协议之后，我们就可以在js中如下获取到我们创建的原生模块。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import &#123; NativeModules &#125; from &apos;react-native&apos;;</div><div class="line">var BGNativeModuleExample = NativeModules.BGNativeModuleExample;</div></pre></td></tr></table></figure>
+<ol>
+<li>为原生模块添加方法</li>
+</ol>
+<p>编辑RCTBridgeModule.m，我们需要明确的声明要给JS导出的方法，否则ReactNative不会导出任何方法。声明通过RCT_EXPORT_METHOD()宏来实现：</p>
+<p>RCT_EXPORT_METHOD(addEvent:(NSString <em>)name location:(NSString </em>)location)<br>{<br>    RCTLogInfo(@”Pretending to create an event %@ at %@”, name, location);<br>}</p>
+<p>注意：在RCTBridgeModule.h文件里导入RCTLog.h文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#import &lt;React/RCTLog.h&gt;</div></pre></td></tr></table></figure>
+<p>在JS中调用代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BGNativeModuleExample.addEvent(&apos;Birthday Party&apos;, &apos;4 Privet Drive, Surrey&apos;);</div></pre></td></tr></table></figure>
+<p>其他调用实现就可以参考官方文档啦。。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+          
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/11/unicode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mawenjing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sunny's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/11/unicode/" itemprop="url">字符编码：ASCII, Unicode 和 UTF-8</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-11T19:17:25+08:00">
+                2018-03-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一直不怎么清楚这几种编码之间的关系，参考一些资料总结如下：</p>
+<h2 id="一、ASCII-码"><a href="#一、ASCII-码" class="headerlink" title="一、ASCII 码"></a>一、ASCII 码</h2><p>背景：</p>
+<p>大家都了解，计算机中的所有信息最终都转换成二进制。二进制中的每一位分为0和1两种状态，一个字节对应八个二进制位，所以就可以组合成256种不同的状态，每一个状态对应一个一个符号，就会产生256种符号（00000000到11111111）。</p>
+<p>制定：</p>
+<p>ASCII是上世纪60年代，美国制定的一套字符编码，对英语字符与二进制位之间的关系制定了统一的规定。其规定了128种字符的编码（大写字母A是65，对应二进制01000001），一个字符占用一个字节的后面7位，最前面以为统一为0。</p>
+<h2 id="二、Unicode-码"><a href="#二、Unicode-码" class="headerlink" title="二、Unicode 码"></a>二、Unicode 码</h2><p>背景：</p>
+<p>英语使用128个字符就够了，但是其他语言却不够（法语中，字母上方有注音符号，ASCII码无法表示，所以一些欧洲国家就决定利用字节空闲的最高位来表示新的符号。因此这些欧洲国家使用编码体系，最多可以表示256个字符）。</p>
+<p>至于亚洲国家的文字，使用的符号就更多了，汉字就多达10万左右。一个字节只能表示256种符号，肯定是不够的，就必须使用多个字节表达一个符号。比如，简体中文常见的编码方式是 GB2312，使用两个字节表示一个汉字，所以理论上最多可以表示 256 x 256 = 65536 个符号</p>
+<p>另一个问题，不同的国家有不同的字符，哪怕都是使用256个符号的编码方式，代表的字母却不一样。所有这些编码方式中，0–127表示的符号是一样的，不一样的只是128–255的这一段。</p>
+<p>制定：</p>
+<p>正如上一节所说，世界上存在着多种编码方式，同一个二进制数字可以被解释成不同的符号。因此，要想打开一个文本文件，就必须知道它的编码方式，否则用错误的编码方式解读，就会出现乱码。为什么电子邮件常常出现乱码？就是因为发信人和收信人使用的编码方式不一样。</p>
+<p>可以想象，如果有一种编码，将世界上所有的符号都纳入其中。每一个符号都给予一个独一无二的编码，那么乱码问题就会消失。这就是 Unicode，就像它的名字都表示的，这是一种所有符号的编码。</p>
+<p>Unicode 当然是一个很大的集合，现在的规模可以容纳100多万个符号。每个符号的编码都不一样，比如，U+0639表示阿拉伯字母Ain，U+0041表示英语的大写字母A，U+4E25表示汉字严。具体的符号对应表，可以查询unicode.org，或者专门的汉字对应表。</p>
+<h2 id="UTF-8"><a href="#UTF-8" class="headerlink" title="UTF-8"></a>UTF-8</h2><p>背景：</p>
+<p>需要注意的是，Unicode 只是一个符号集，它只规定了符号的二进制代码，却没有规定这个二进制代码应该如何存储。</p>
+<p>比如，汉字严的 Unicode 是十六进制数4E25，转换成二进制数足足有15位（100111000100101），也就是说，这个符号的表示至少需要2个字节。表示其他更大的符号，可能需要3个字节或者4个字节，甚至更多。</p>
+<p>这里就有两个严重的问题，第一个问题是，如何才能区别 Unicode 和 ASCII ？计算机怎么知道三个字节表示一个符号，而不是分别表示三个符号呢？第二个问题是，我们已经知道，英文字母只用一个字节表示就够了，如果 Unicode 统一规定，每个符号用三个或四个字节表示，那么每个英文字母前都必然有二到三个字节是0，这对于存储来说是极大的浪费，文本文件的大小会因此大出二三倍，这是无法接受的。</p>
+<p>它们造成的结果是：1）出现了 Unicode 的多种存储方式，也就是说有许多种不同的二进制格式，可以用来表示 Unicode。2）Unicode 在很长一段时间内无法推广，直到互联网的出现。</p>
+<p>制定：</p>
+<p>互联网的普及，强烈要求出现一种统一的编码方式。UTF-8 就是在互联网上使用最广的一种 Unicode 的实现方式。其他实现方式还包括 UTF-16（字符用两个字节或四个字节表示）和 UTF-32（字符用四个字节表示），不过在互联网上基本不用。重复一遍，这里的关系是，UTF-8 是 Unicode 的实现方式之一。</p>
+<p>UTF-8 最大的一个特点，就是它是一种变长的编码方式。它可以使用1~4个字节表示一个符号，根据不同的符号而变化字节长度。</p>
+<p>UTF-8 的编码规则很简单，只有二条：</p>
+<p>1）对于单字节的符号，字节的第一位设为0，后面7位为这个符号的 Unicode 码。因此对于英语字母，UTF-8 编码和 ASCII 码是相同的。</p>
+<p>2）对于n字节的符号（n &gt; 1），第一个字节的前n位都设为1，第n + 1位设为0，后面字节的前两位一律设为10。剩下的没有提及的二进制位，全部为这个符号的 Unicode 码。</p>
+<p>下面，还是以汉字严为例，演示如何实现 UTF-8 编码。</p>
+<p>严的 Unicode 是4E25（100111000100101），根据上表，可以发现4E25处在第三行的范围内（0000 0800 - 0000 FFFF），因此严的 UTF-8 编码需要三个字节，即格式是1110xxxx 10xxxxxx 10xxxxxx。然后，从严的最后一个二进制位开始，依次从后向前填入格式中的x，多出的位补0。这样就得到了，严的 UTF-8 编码是11100100 10111000 10100101，转换成十六进制就是E4B8A5。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+          
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/05/IELTS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mawenjing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sunny's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/05/IELTS/" itemprop="url">IELTS</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-05T20:13:43+08:00">
+                2017-11-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="雅思资料整理"><a href="#雅思资料整理" class="headerlink" title="雅思资料整理"></a>雅思资料整理</h2><p><img src="../雅思.png" alt="雅思第一阶段"><br><img src="../雅思2.png" alt="雅思第二阶段"><br><a href="https://www.zhihu.com/question/21996188" target="_blank" rel="external">参考：https://www.zhihu.com/question/21996188)</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+          
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/26/proxy-server/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mawenjing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sunny's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/26/proxy-server/" itemprop="url">proxy-server</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-26T19:54:57+08:00">
+                2017-10-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="透明代理-解除远程接口对本地的跨域限制，从而在本地网页上可使用有跨域限制的ajax"><a href="#透明代理-解除远程接口对本地的跨域限制，从而在本地网页上可使用有跨域限制的ajax" class="headerlink" title="透明代理-解除远程接口对本地的跨域限制，从而在本地网页上可使用有跨域限制的ajax"></a>透明代理-解除远程接口对本地的跨域限制，从而在本地网页上可使用有跨域限制的ajax</h2><p>####首先需要搞清楚正向代理、反向代理和透明代理的概念及其它们之间的区别？</p>
+<ol>
+<li>正向代理</li>
+</ol>
+<p>简述：</p>
+<p>正向代理是位于客户端和目标服务器之间的一个代理服务器。遇到客服端无法访问目标服务器的情况，为了正常从目标服务器获取资源，客服端会向代理服务器发送请求，并指定目标服务器，代理服务器接收请求并将请求转交给目标服务器，之后将获取的资源内容返回给客户端。这里需要注意，客户端请求时必须指定目标服务器才能完成请求。</p>
+<p>使用场景：</p>
+<p>正向代理经常被用于翻墙，比如用户A无法访问facebook，但可以访问服务器B，而服务器B可以访问facebook。于是用户A访问服务器B，通过B去访问facebook，B接收到请求之后，去访问facebook，facebook将相应信息返回给B，B再将响应返回给A。这样通过服务器B，就可以实现翻墙。</p>
+<ol>
+<li>反向代理</li>
+</ol>
+<p>简述：</p>
+<p>与正向代理相反，对于客户端而言，代理服务器就像是目标服务器。客户端不需要设置任何信息，直接将请求发送给代理服务器，代理服务器根据条件判断请求哪个目标服务器，而客户端并不需要关心代理服务器的处理过程。</p>
+<p>使用场景：</p>
+<p>假设用户A访问 <a href="http://www.somesite.com/something.html，但http://www.somesite.com上并不存在something.html页面，于是接收用户请求的该服务器就偷偷从另外一台服务器上取回来，然后返回给用户，而用户并不知道something.html页面究竟位于哪台机器上。" target="_blank" rel="external">http://www.somesite.com/something.html，但http://www.somesite.com上并不存在something.html页面，于是接收用户请求的该服务器就偷偷从另外一台服务器上取回来，然后返回给用户，而用户并不知道something.html页面究竟位于哪台机器上。</a></p>
+<ol>
+<li>透明代理</li>
+</ol>
+<p>概念：</p>
+<p>透明代理比较类似正向代理的功能，差别在于客户端根本不知道代理的存在，它改编你的request，并会传送真实IP（使用场景就是公司限制网络的访问）</p>
+<p>使用场景：</p>
+<p>比如为了工作效率或者安全，A公司屏蔽了QQ软件的使用。A公司的员工接上了网络，但发现无法使用qq。这就是透明代理捣的鬼。公司在内网和外网的中间插入一个透明代理，这个代理会根据规则抓取请求内容，遇到qq的请求我就把这个请求给屏蔽掉，这样就完成了透明屏蔽。当然了，如果你明白原理，就可以自己搞个正向代理来绕过公司的屏蔽。</p>
+<ol>
+<li>区别</li>
+</ol>
+<p>正向代理是代理客户端，为客户端收发请求，使真实客户端对服务器不可见；而反向代理是代理服务器端，为服务器收发请求，使真实服务器对客户端不可见；透明代理和正向代理类似，但是客户端并不知道代理的存在。</p>
+<p>####解决方案</p>
+<ol>
+<li>增加或修改response的header中的Access-Control-Allow-Origin项，设定其值为本地调试的域名，如：<a href="http://localhost:8080，注意结尾无/。" target="_blank" rel="external">http://localhost:8080，注意结尾无/。</a></li>
+<li>增加response的header中Access-Control-Allow-Credentials，设定其值为true，即允许跨域传递cookie。<br>Note: Access-Control-Allow-Credentials为true时，chrome限制Access-Control-Allow-Origin不能为*<br>MacOS下可使用Charles实现，windows下可使用fiddler实现。跨平台则使用基于node-proxy实现的自制代理</li>
+</ol>
+<p><strong>方法一： 使用node-proxy</strong><br>方式一： 命令行工具</p>
+<ol>
+<li>执行npm install simple-xdomain-proxy -g</li>
+<li>xdomain-proxy , 按照引导进行配置</li>
+<li>打开chrome，通过SwitchyOmega或其它工具，设置http代理127.0.0.1:port, 代理网页到本地代理服务。<br>参照： <a href="https://github.com/goumang2010/simple-xdomain-proxy" target="_blank" rel="external">https://github.com/goumang2010/simple-xdomain-proxy</a><br>方式二：REPL环境</li>
+<li>安装node环境，通过npm安装http-proxy： npm i http-proxy -g</li>
+<li>进入node的REPL环境： node</li>
+<li>粘贴以下js并回车，即立即执行这段代码，会设置代理端口号为8038，跨域origin为<a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a></li>
+<li>打开chrome，通过SwitchyOmega或其它工具，设置http代理127.0.0.1:8038, 代理网页到本地代理服务。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> httpProxy = <span class="built_in">require</span>(<span class="string">'http-proxy'</span>);</div><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">"url"</span>);</div><div class="line"><span class="keyword">var</span> proxy = httpProxy.createProxyServer(&#123;&#125;);</div><div class="line">proxy.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, req, res</span>) </span>&#123;</div><div class="line">	res.writeHead(<span class="number">500</span>, &#123;</div><div class="line">		<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span></div><div class="line">	&#125;);</div><div class="line">	res.end(<span class="string">'Something went wrong.'</span>);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">createProxy</span>(<span class="params">&#123; port, origin &#125;</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">		<span class="keyword">var</span> urlObj = url.parse(req.url);</div><div class="line">		res.oldWriteHead = res.writeHead;</div><div class="line">		res.writeHead = <span class="function"><span class="keyword">function</span>(<span class="params">statusCode, headers</span>) </span>&#123;</div><div class="line">			<span class="comment">// 设置跨域头</span></div><div class="line">			res.setHeader(<span class="string">'Access-Control-Allow-Credentials'</span>, <span class="literal">true</span>);</div><div class="line">			res.setHeader(<span class="string">'Access-Control-Allow-Origin'</span>, origin || <span class="string">'*'</span>);</div><div class="line">			res.setHeader(<span class="string">'Access-Control-Allow-Methods'</span>, <span class="string">'GET,PUT,POST,DELETE'</span>);</div><div class="line">			res.setHeader(<span class="string">'Access-Co ntrol-Allow-Headers'</span>, <span class="string">'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept'</span>);</div><div class="line">			res.oldWriteHead(statusCode, headers);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">let</span> target = urlObj.protocol + <span class="string">"//"</span> + urlObj.host;</div><div class="line"></div><div class="line">		proxy.web(req, res, &#123;</div><div class="line">			<span class="attr">target</span>: target</div><div class="line">		&#125;);</div><div class="line">	&#125;).listen(port);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>方法二：使用Charles</strong></p>
+<ol>
+<li>打开rewrite工具。<br>￼<br>open rewrite tool</li>
+<li>上方配置筛选域名，下方配置重写选项<br>￼</li>
+<li>首先选择类型，然后填写匹配及替换的字段，留空表示匹配全部。<br>￼</li>
+<li>完成设置后，浏览器使用系统代理即可。</li>
+</ol>
+<p>参考：<br><a href="https://zhuanlan.zhihu.com/p/25423394" target="_blank" rel="external">正向代理和反向代理的区别</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+          
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/30/tcp-ip/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mawenjing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sunny's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/30/tcp-ip/" itemprop="url">tcp/ip</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-30T15:22:08+08:00">
+                2017-09-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="数据包是如何在网络中传输的"><a href="#数据包是如何在网络中传输的" class="headerlink" title="数据包是如何在网络中传输的"></a>数据包是如何在网络中传输的</h2><p>我们电脑上的数据，是如何“走”到远端的另一台电脑的呢？这是个最基础的问题，可能很多人回答不上来，尽管我们每天都在使用网络。这里我们以一个最简单的“ping”命令，来解释一个数据包“旅程”。</p>
+<p>假设：我的电脑A，向远在外地的朋友电脑B传输数据，最简单的就是“ping”一下，看看这个家伙的那一端网络通不通。A与B之间只有一台路由器。（路由器可能放在学校，社区或者电信机房，无所谓，基本原理是一样的）</p>
+<p>具体过程如下——<br>1．“ping”命令所产生的数据包，我们归类为ICMP协议。说白了就是向目的地发送一个数据包，然后等待回应，如果回应正常则目的地的网络就是通的。当我们输入了“ping”命令之后，我们的机器（电脑A）就生成了一个包含ICMP协议域的数据包，姑且称之为“小德”吧~~~~</p>
+<p>2．“小德”已经将ICMP协议打包到数据段里了，可是还不能发送，因为一个数据要想向外面传送，还得经过“有关部门”的批准——IP协议。IP要将你的“写信人地址”和“收信人地址”写到数据段上面，即：将数据的源IP地址和目的IP地址分别打包在“小德”的头部和尾部，这样一来，大家才知道你的数据是要送到哪里。</p>
+<p>3．准备工作还没有完。接下来还有部门要审核——ARP。ARP属于数据链路层协议，主要负责把IP地址对应到硬件地址。直接说吧，都怪交换机太“傻”，不能根据IP地址直接找到相应的计算机，只能根据硬件地址来找。于是，交换机就经常保留一张IP地址与硬件地址的对应表以便其查找目的地。而ARP就是用来生成这张表的。比如：当“小德”被送到ARP手里之后，ARP就要在表里面查找，看看“小德”的IP地址与交换机的哪个端口对应，然后转发过去。如果没找到，则发一个广播给所有其他的交换机端口，问这是谁的IP地址，如果有人回答，就转发给它。</p>
+<p>4．经过一番折腾，“小德”终于要走出这个倒霉的局域网了。可在此之前，它们还没忘给“小德”屁股后面盖个“戳”，说是什么CRC校验值，怕“小德”在旅行途中缺胳膊少腿，还得麻烦它们重新发送。。。。。我靠~~~~注：很多人弄不清FCS和CRC。所谓的CRC是一种校验方法，用来确保数据在传输过程中不会丢包，损坏等等，FCS是数据包（准确的说是frame）里的一个区域，用来存放CRC的计算结果的。到了目的地之后，目的计算机要检查FCS里的CRC值，如果与原来的相同，则说明数据在途中没有损坏。</p>
+<p>5．在走出去之前，那些家伙最后折磨了一次“小德”——把小德身上众多的0和1，弄成了什么“高电压”“低电压”，在双绞线上传送了出去。晕~~出趟门就这么麻烦吗？</p>
+<p>6．坐着双绞线旅游，爽！可当看到很多人坐着同轴电缆，还有坐光纤的时候，小德又感觉不是那么爽了。就在这时，来到了旅途的中转站——路由器。这地方可是高级场所，人家直接查看IP地址！剩下的一概不管，交给下面的人去做。够牛吧？路由器的内部也有一张表，叫做路由表，里面标识着哪一个网络的IP对应着路由器的哪一个端口。这个表也不是天生就有的，而是靠路由器之间互相“学习”之后生成的，当然也可以由管理员手工设定。这个“学习”的过程是依靠路由协议来完成的，比如RIP，EIGRP，OSPF等等。</p>
+<p>7．当路由器查看了“小德”的IP地址以后，根据路由表知道了小德要去的网络，接着就把小德转到了相应的端口了。至此，路由器的主要工作完成，下面又是打包，封装成frame，转换成电压信号等一系列“折腾”的活，就由数据链路层和物理层的模块去干吧。</p>
+<p>8．小德从路由器的出口出来，便来到了目的地—-电脑B—-所属的网络的默认网关。默认网关可以是路由器的一个端口，也可以是局域网里的各种服务器。不管怎样，下面的过程还是一样的：到交换机里的ARP表查询“小德”的IP地址，看看属于哪个局域网段或端口，然后就转发到B了。</p>
+<p>9．进了B的网卡之后，还要层层“剥皮”，基本上和从A出来的程序是一样的——电脑B先校验一下CRC值，看看数据是否完整；然后检查一下frame的封装，看到是IP协议之后，就把“小德”交给IP“部门”了；IP协议一看目的地址，正确，再看看应用协议，是ICMP。于是知道了该怎么做了——产生一个回应数据包，（可以命名为“回应小德”），并准备以同样的顺序向远端的A发送。。至于刚刚收到的那个数据包就丢弃了。</p>
+<p>10．“回应小德”这个数据包又开始了上述同样的循环，只不过这次发送者是B而接收者是A了。</p>
+<p>以上是一个最简单的路由过程，任何复杂的网络都是在次基础之上实现的。</p>
+<h2 id="如何形象地理解计算机网络中的物理层-数据链路层-网络层？"><a href="#如何形象地理解计算机网络中的物理层-数据链路层-网络层？" class="headerlink" title="如何形象地理解计算机网络中的物理层/数据链路层/网络层？"></a>如何形象地理解计算机网络中的物理层/数据链路层/网络层？</h2><ul>
+<li>简单地说，为了实现跨越互联网的，主机 A 的进程 P1，和主机 B 的进程 P2 之间的通信，我们逐层把这个任务交给 TCP/IP 协议栈。</li>
+<li>运输层：“如果有人能帮我把数据从某个网络中的机器 A 搬到另一个网络中的机器 B，我就可以搞定这个任务，因为我知道不同的数据应该交给机器上的哪个进程。”</li>
+<li>网络层：“如果有人能帮我把数据从局域网中直接相连的一台机器搬到另一台机器，我就可以把数据从一个网络搬到另一个网络，因为我知道路线怎么走，要经过哪些节点。</li>
+<li>”链路层：“我知道怎样在局域网中搬数据，还能用 CSMA/CD 协议协调工作，还能用 CRC32 校验发送的数据和接收的数据是一致的，blabla…  But，我只是说说，我不干苦力活。</li>
+<li>”物理层：“楼上的大爷们发话了，兄弟们上。”</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+          
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/reactroute/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mawenjing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sunny's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/16/reactroute/" itemprop="url">React-Router browserHistory浏览器刷新出现页面404解决方案</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-16T14:37:13+08:00">
+                2017-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在React项目中我们经常需要采用React-Router来配置我们的页面路由，React-Router 是建立在 history 之上的，常见的history路由方案有三种形式，分别是：</p>
+<ul>
+<li>hashHistory</li>
+<li>browserHistory</li>
+<li>createMemoryHistory</li>
+</ul>
+<p><code>hashHistory</code> 使用 <code>URL</code> 中的 <code>hash</code>（#）部分去创建形如 <code>example.com/#/some/path</code> 的路由。<br><code>browserHistory</code> 是使用 <code>React-Router</code> 的应用推荐的 <code>history</code> 方案。它使用浏览器中的 <strong>History</strong> API 用于处理 <code>URL</code>，创建一个像<code>example.com/list/123</code>这样真实的 <code>URL</code> 。</p>
+<p>一个采用 <code>browserHistory</code> 的 <code>React-router</code> 配置可能如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">"react-dom"</span>;</div><div class="line"><span class="keyword">import</span> &#123; Router, Route, IndexRoute, Link, IndexLink, browserHistory&#125; <span class="keyword">from</span> <span class="string">'react-router'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> Index <span class="keyword">from</span> <span class="string">"../routes/HelloWorld"</span>;</div><div class="line"><span class="keyword">import</span> List <span class="keyword">from</span> <span class="string">"../routes/BlogList"</span>;</div><div class="line"><span class="keyword">import</span> About <span class="keyword">from</span> <span class="string">"../routes/About"</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;ul&gt;</div><div class="line">                  &lt;li&gt;&lt;IndexLink to="/"&gt;首页&lt;/IndexLink&gt;&lt;/li&gt;</div><div class="line">                  &lt;li&gt;&lt;Link to="/list"&gt;List&lt;/Link&gt;&lt;/li&gt;</div><div class="line">                  &lt;li&gt;&lt;Link to="/about"&gt;About&lt;/Link&gt;&lt;/li&gt;</div><div class="line">                &lt;/ul&gt;</div><div class="line">                &#123;this.props.children&#125;</div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">    &lt;Router history = &#123;browserHistory&#125;&gt;</div><div class="line">        &lt;Route path="/" component=&#123;App&#125;&gt;</div><div class="line">          &lt;IndexRoute component=&#123;Index&#125;/&gt;</div><div class="line">          &lt;Route path="list" component=&#123;List&#125;/&gt;</div><div class="line">          &lt;Route path="about" component=&#123;About&#125;/&gt;</div><div class="line">        &lt;/Route&gt;</div><div class="line">    &lt;/Router&gt;,</div><div class="line">    document.getElementById("APP")</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>但是我们当我们采用 <code>browserHistory</code> 方案时，通常会遇到浏览器刷新404 的问题。</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在 <code>React + React-router</code> 实现的SPA(单页面应用)项目中，当我们路由模式采用 <code>browserHistory</code> 时，点击每个导航都可以显示正确的页面，一旦浏览器刷新，页面就显示 Cannot GET（404）。<br>如当我们点击 <code>List</code> 链接，进入 <code>List</code> 页面之后，正常显示 <code>List</code> 页面内容，这时如果我们刷新页面，页面将会出错，返回 Cannot GET /list。</p>
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>当刷新页面时，浏览器会向服务器请求 <code>example.com/list</code>，服务器实际会去找根目录下list.html这个文件，发现找不到，因为实际上我们的服务器并没有这样的 物理路径/文件 或没有配置处理这个路由，所有内容都是通过React-Router去渲染React组件，自然会报404错误。这种情况我们可以通过配置Nginx或通过自建Node服务器来解决。</p>
+<h2 id="Nginx方式"><a href="#Nginx方式" class="headerlink" title="Nginx方式"></a>Nginx方式</h2><p>采用Nginx方案需要先将所有资源打包生成到对应的目录，比如<code>dist</code>，然后做如下配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">	server_name react.thinktxt.com;</div><div class="line">	listen <span class="number">80</span>;</div><div class="line"></div><div class="line">	root /Users/txBoy/WEB-Project/React-Demo/dist;</div><div class="line">	index index.html;</div><div class="line">	location / &#123;</div><div class="line">    	try_files $uri /index.html;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过配置Nginx，访问任何URI都指向index.html，浏览器上的path，会自动被React-router处理，进行无刷新跳转。</p>
+<h2 id="通过修改webpack-dev-server运行方式"><a href="#通过修改webpack-dev-server运行方式" class="headerlink" title="通过修改webpack-dev-server运行方式"></a>通过修改webpack-dev-server运行方式</h2><p>这个解决方法很简单，直接在运行时加入参数“–history-api-fallback”就可以了。我们修改package.json相关的代码:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"build"</span>: <span class="string">"webpack"</span>,</div><div class="line">    <span class="string">"dev"</span>: <span class="string">"webpack-dev-server  --inline --devtool eval --progress --colors --hot --content-base ./build --history-api-fallback"</span></div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<h2 id="Node服务端配置"><a href="#Node服务端配置" class="headerlink" title="Node服务端配置"></a>Node服务端配置</h2><p>一个express应用的配置示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="keyword">const</span> port = process.env.PORT || <span class="number">8080</span>;</div><div class="line"><span class="keyword">const</span> app = express();</div><div class="line"></div><div class="line"><span class="comment">//加载指定目录静态资源</span></div><div class="line">app.use(express.static(__dirname + <span class="string">'/dist'</span>))</div><div class="line"></div><div class="line"><span class="comment">//配置任何请求都转到index.html，而index.html会根据React-Router规则去匹配任何一个route</span></div><div class="line">app.get(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">request, response</span>)</span>&#123;</div><div class="line">  response.sendFile(path.resolve(__dirname, <span class="string">'dist'</span>, <span class="string">'index.html'</span>))</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.listen(port, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"server started on port "</span> + port)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>一个Koa应用的配置示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Koa <span class="keyword">from</span> <span class="string">'koa'</span>;</div><div class="line"><span class="keyword">import</span> xtpl <span class="keyword">from</span> <span class="string">'koa-xtpl'</span>;</div><div class="line"><span class="keyword">import</span> path <span class="keyword">from</span> <span class="string">'path'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</div><div class="line"><span class="keyword">const</span> port = process.env.PORT || <span class="number">8081</span>;</div><div class="line"></div><div class="line">app.use(xtpl(&#123;</div><div class="line">	<span class="attr">root</span>: path.resolve(__dirname, <span class="string">'../dist'</span>),</div><div class="line">	<span class="attr">extname</span>: <span class="string">'html'</span>,</div><div class="line">	<span class="attr">commands</span>: &#123;&#125;</div><div class="line">&#125;));</div><div class="line"></div><div class="line">app.use(<span class="keyword">async</span>(ctx, next) =&gt; &#123;</div><div class="line">	<span class="keyword">await</span> ctx.render(<span class="string">'index'</span>, &#123;&#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.listen(port, () =&gt; &#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'Server started on port'</span> + port);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>注意: 由于koa的这种方式端口与webpack-dev-server（8080）必须不同，所以还需要配合Nginx代理。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">	server_name react.thinktxt.com;</div><div class="line">	listen <span class="number">80</span>;</div><div class="line"></div><div class="line">	location / &#123;</div><div class="line">		proxy_pass http:<span class="comment">//localhost:8081;</span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">server &#123;</div><div class="line">	server_name <span class="keyword">static</span>.react.thinktxt.com;</div><div class="line">	listen <span class="number">80</span>;</div><div class="line"></div><div class="line">	location / &#123;</div><div class="line">		proxy_pass http:<span class="comment">//localhost:8080;</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>既然我们的Nginx代理用了真实域名，自然别忘了修改一下host，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> react.thinktxt.com</div><div class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> <span class="keyword">static</span>.react.thinktxt.com</div></pre></td></tr></table></figure>
+<p>这样我们就大功告成了，可以happy的在地址栏直接访问任何采用browserHistory方式配置的路由页面了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>面对这种场景其实还有很多种方案，任何服务端的处理方式都可以，例如还有PHP、Apache等等。</p>
+<blockquote>
+<p>其本质的原理就是利用服务端将任何请求都指向index.html，而在React应用中index.html又刚好通过React-Router配置了相应的路由，我们让服务器返回index.html，后面就交给前端路由来实现无刷新加载对应页面。</p>
+</blockquote>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li>React Router 中文文档-Histories</li>
+<li>react-router 浏览器刷新，页面404，依靠nginx配置解决</li>
+<li><a href="http://techgogogo.com/2016/09/react_router/" target="_blank" rel="external">小白学react之React Router实战</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+          
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/05/keyevent/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mawenjing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sunny's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/05/keyevent/" itemprop="url">keyevent</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-05T15:13:00+08:00">
+                2017-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>charCode对应keyPress事件（会由组合键引起变化与keyDown下的keyCode不同）<br>keyCode对应keyDown事件</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+          
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/03/nodejses6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mawenjing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sunny's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/03/nodejses6/" itemprop="url">nodejses6</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-03T16:52:21+08:00">
+                2017-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>hello world<br><a href="http://www.ruanyifeng.com/blog/2016/01/babel.html" target="_blank" rel="external">Babel</a><br><a href="http://blog.csdn.net/future_challenger/article/details/54648399" target="_blank" rel="external">nodejs+es6</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+          
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/02/regexp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mawenjing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sunny's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/02/regexp/" itemprop="url">RegExp对象</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-02T19:43:19+08:00">
+                2017-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="正则表达式两种表示形式"><a href="#正则表达式两种表示形式" class="headerlink" title="正则表达式两种表示形式"></a>正则表达式两种表示形式</h2><ul>
+<li><p>使用字面量，以斜杠表示开始和结束。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> regex = <span class="regexp">/xyz/</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用RegExp构造函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> regex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'xyz'</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="正则对象的方法"><a href="#正则对象的方法" class="headerlink" title="正则对象的方法"></a>正则对象的方法</h2><ul>
+<li><p>test()<br>返回一个布尔值，表示当前模式是否能匹配参数字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/cat/.test(<span class="string">'cats and dogs'</span>) <span class="comment">// true</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>exec()<br>正则对象的exec方法，可以返回匹配结果。如果发现匹配，就返回一个数组，成员是每一个匹配成功的子字符串，否则返回null。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="string">'_x_x'</span>;</div><div class="line"><span class="keyword">var</span> r = <span class="regexp">/_(x)/</span>;</div><div class="line"></div><div class="line">r.exec(s) <span class="comment">// ["_x", "x"]</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="字符串对象的方法"><a href="#字符串对象的方法" class="headerlink" title="字符串对象的方法"></a>字符串对象的方法</h2><p>match()：返回一个数组，成员是所有匹配的子字符串。<br>search()：按照给定的正则表达式进行搜索，返回一个整数，表示匹配开始的位置。<br>replace()：按照给定的正则表达式进行替换，返回替换后的字符串。<br>split()：按照给定规则进行字符串分割，返回一个数组，包含分割后的各个成员。</p>
+<p>以replace为例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'  #id div.class  '</span>;</div><div class="line"></div><div class="line">str.replace(<span class="regexp">/^\s+|\s+$/g</span>, <span class="string">''</span>)</div><div class="line"><span class="comment">// "#id div.class"</span></div></pre></td></tr></table></figure></p>
+<p>问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var s = &apos;abba&apos;;</div><div class="line">var r = /a.*b/g;</div><div class="line"></div><div class="line">s.match(r)</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+          
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.jpg"
+              alt="mawenjing" />
+          
+            <p class="site-author-name" itemprop="name">mawenjing</p>
+            <p class="site-description motion-element" itemprop="description">what do you want？</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mawenjing</span>
+
+  
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/love.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/particle.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
